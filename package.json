@@ -1,0 +1,44 @@
+{
+  "name": "tomato-tasker",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://jordonwii.github.io",
+  
+  "dependencies": {
+    "@types/node": "^12.7.5",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-textarea-autosize": "^4.3.4",
+    "bootstrap": "^4.3.1",
+    "gh-pages": "^2.2.0",
+    "react": "^16.9.0",
+    "react-bootstrap": "^1.0.0-beta.14",
+    "react-dom": "^16.9.0",
+    "react-scripts": "^3.4.0",
+    "react-textarea-autosize": "^7.1.2",
+    "typescript": "^3.6.3"
+  },
+  "scripts": {
+    "predeploy": "npm run build; echo '*' > build/.gitallowed",
+    "deploy": "gh-pages -d build --dotfiles",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
