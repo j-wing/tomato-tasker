@@ -2,7 +2,7 @@
   "name": "tomato-tasker",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jordonwii.github.io",
+  "homepage": "https://jordonwii.github.io/tomato-tasker/",
   
   "dependencies": {
     "@types/node": "^12.7.5",
