@@ -38,6 +38,8 @@ class App extends React.Component<AppProps, AppState> {
   constructor(props: AppProps) {
     super(props);
 
+    this.checkNotificationPermission();
+
     this.state = {
       taskItems: [{before: "", after: ""}]
     };
@@ -82,6 +84,16 @@ class App extends React.Component<AppProps, AppState> {
     this.setState(s => ({
      taskItems: [newTask].concat(s.taskItems)
     }))
+  }
+
+  checkNotificationPermission() {
+    if (window.Notification.permission !== "granted") {
+      window.Notification.requestPermission().then(p => {
+        if (p === "granted") {
+          new Notification("Tomato Tasker notifications are on!");
+        }
+      })
+    }
   }
 }
 
