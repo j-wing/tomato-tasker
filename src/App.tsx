@@ -15,8 +15,11 @@
  */
 
 import React from 'react';
+import update from 'immutability-helper';
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { TaskItem } from './TaskItem';
 import { Timer } from './Timer';
 import { Task } from './task';
@@ -28,6 +31,7 @@ interface AppProps {
 
 interface AppState {
   taskItems: Array<Task>
+
 }
 
 class App extends React.Component<AppProps, AppState> {
@@ -41,7 +45,12 @@ class App extends React.Component<AppProps, AppState> {
 
   render() {
     let items = this.state.taskItems.flatMap((t, i) => 
-      <TaskItem before={t.before} after={t.after} key={i + t.before + t.after} />
+      <TaskItem
+        before={t.before}
+        after={t.after}
+        key={i}
+        beforeChangeHandler={e => this.handleBeforeChange(i, e)}
+        afterChangeHandler={e => this.handleAfterChange(i, e)} />
     ).reverse();
     return <div className="app">
       <Timer resetHandler={this.handleReset.bind(this)} />
@@ -49,6 +58,23 @@ class App extends React.Component<AppProps, AppState> {
         {items}
       </div>"
     </div>
+  }
+
+  handleBeforeChange(taskIndex: number, e: React.ChangeEvent) {
+    let newVal = (e.target as HTMLTextAreaElement).value;
+    this.setState(s => {
+      let task = update(this.state.taskItems[taskIndex], {$merge: {before: newVal}});
+      return {taskItems: update(s.taskItems, {$splice: [[taskIndex, 1, task]]})}
+    });
+
+  }
+
+  handleAfterChange(taskIndex: number, e: React.ChangeEvent) {
+    let newVal = (e.target as HTMLTextAreaElement).value;
+    this.setState(s => {
+      let task = update(this.state.taskItems[taskIndex], {$merge: {after: newVal}});
+      return {taskItems: update(s.taskItems, {$splice: [[taskIndex, 1, task]]})}
+    });
   }
 
   handleReset() {
