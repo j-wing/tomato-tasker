@@ -59,10 +59,21 @@ body, .root {
 
 .items .task-item {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px dotted lightgray;
+}
+
+.items .task-item .task-id {
+  font-weight: bold;
+  font-size: 120%;
+  margin: 0px 10px;
+  
 }
 
 .items .task-item textarea {
   display: flex;
   flex-grow: 1;
   height: 100px;
+  margin: 5px;
 }

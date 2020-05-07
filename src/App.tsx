@@ -48,8 +48,7 @@ class App extends React.Component<AppProps, AppState> {
   render() {
     let items = this.state.taskItems.flatMap((t, i) => 
       <TaskItem
-        before={t.before}
-        after={t.after}
+        task={t}
         key={t.taskNum}
         beforeChangeHandler={e => this.handleBeforeChange(i, e)}
         afterChangeHandler={e => this.handleAfterChange(i, e)} />
