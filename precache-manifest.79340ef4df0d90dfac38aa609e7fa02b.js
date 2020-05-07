@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f76e1929889324247bfd212215c23d1d",
+    "revision": "6d41c796a089b21179fee0bf2868c7ad",
     "url": "/tomato-tasker/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tomato-tasker/static/css/2.2ec3db0d.chunk.css"
   },
   {
-    "revision": "fcdf4fb8dc48260b74ab",
-    "url": "/tomato-tasker/static/css/main.357e78c1.chunk.css"
+    "revision": "b220cd185582bf506edc",
+    "url": "/tomato-tasker/static/css/main.ff717e74.chunk.css"
   },
   {
     "revision": "952fa169a7655f1dc00f",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tomato-tasker/static/js/2.e53d6c1a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fcdf4fb8dc48260b74ab",
-    "url": "/tomato-tasker/static/js/main.11a23102.chunk.js"
+    "revision": "b220cd185582bf506edc",
+    "url": "/tomato-tasker/static/js/main.10cf4173.chunk.js"
   },
   {
     "revision": "aa87a1a65ec00b3022dc",
