@@ -41,7 +41,7 @@ class App extends React.Component<AppProps, AppState> {
     this.checkNotificationPermission();
 
     this.state = {
-      taskItems: [{before: "", after: ""}]
+      taskItems: [{before: "", after: "", taskNum: 0}]
     };
   }
 
@@ -50,10 +50,10 @@ class App extends React.Component<AppProps, AppState> {
       <TaskItem
         before={t.before}
         after={t.after}
-        key={i}
+        key={t.taskNum}
         beforeChangeHandler={e => this.handleBeforeChange(i, e)}
         afterChangeHandler={e => this.handleAfterChange(i, e)} />
-    ).reverse();
+    );
     return <div className="app">
       <Timer resetHandler={this.handleReset.bind(this)} />
       <div className="items">
@@ -80,10 +80,12 @@ class App extends React.Component<AppProps, AppState> {
   }
 
   handleReset() {
-    let newTask: Task = {before: "", after: ""};
-    this.setState(s => ({
-     taskItems: [newTask].concat(s.taskItems)
-    }))
+    this.setState(s => {
+      let newTask: Task = { before: "", after: "", taskNum: s.taskItems.length };
+      return {
+        taskItems: update(s.taskItems, { $splice: [[0, 0, newTask]] })
+      }
+    });
   }
 
   checkNotificationPermission() {
